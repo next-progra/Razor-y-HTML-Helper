@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenido</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div>
+    Nombre de Usuario: 
+    @Html.TextBox("txtUsername", "EJ: Nestor Sandoval", new{@class="form-control"})
+</div>
+
+<div>
+    Password:
+    @Html.Password("Contrasena", "",new {@class="form-control"})   
+</div>
+
+<div>
+    Address:
+    @Html.TextArea("Direccion", "Ingrese su dirección", new{@class="form-control", id="idDireccion"})
+</div>
+
+<div>
+    Seleccione una opcion:<br />
+    bailando:
+    @Html.CheckBox("bailando")<br />
+    Caminando:
+    @Html.CheckBox("caminando", true)<br />
+</div>
+
+<div>
+    @Html.RadioButton("Genero", "masculino", true, new{id="masculino"})
+    Masculino
+    @Html.RadioButton("Genero", "Femenino", false, new{id="femenino"})
+    Femenino
+</div>
+
+<div>
+    @{
+        IEnumerable<string> strList = new List<string> { "POO", "TW", "MAT3", "FIS1" };
+    }
+    @Html.DropDownList("ddlCurso", new SelectList(strList, strList.FirstOrDefault()), "--Seleccionar Curso---")
+</div>
+
+ <div>
+     Seleccione: 
+     @Html.ListBox("Seleccionar habilidades", new List<SelectListItem>{
+         new SelectListItem{Text= "C#", Value ="1"},
+         new SelectListItem{Text= "ASP.NET", Value="2"}, 
+         new SelectListItem{Text= "ASP.NET core", Value="3"}, 
+         new SelectListItem{Text= "Azure", Value="4"}
+    })
+ </div>
+
+ <div>
+     <button type="button" class="btn btn-success">Enviar Datos</button>
+
+ </div>
